@@ -1,0 +1,154 @@
+<%- include('adminPartials/adminHeader.ejs') %>
+<style>
+    #imagePreview img{
+        width: 100px;
+        object-fit: cover;   
+        }
+</style>
+
+        <section class="content-main">
+            <div class="row">
+                <div class="col-9">
+                    <div class="content-header">
+                        <h2 class="content-title">Add New Product</h2>
+                        <!-- <div>
+                            <button class="btn btn-light rounded font-sm mr-5 text-body hover-up">Save to draft</button>
+                        </div> -->
+                    </div>
+                </div>
+                <form action="/admin/addProduct" method="post"  enctype="multipart/form-data">
+                    <div class="col-lg-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <label for="product_title" class="form-label">Product Name</label>
+                                    <input type="text" placeholder="Type here" class="form-control" id="title" name="title">
+                                </div>
+                                <div class="row gx-3">
+                                    <div class="col-md-4  mb-3">
+                                        <label for="product_color" class="form-label">Color</label>
+                                        <input type="text" placeholder="Type here" class="form-control" id="color" name="color">
+                                    </div>
+                                    <div class="col-md-4  mb-3">
+                                        <label for="product_size" class="form-label">Size</label>
+                                        <input type="text" placeholder="Type here" class="form-control" id="size" name="size">
+                                    </div>
+                                    <div class="col-md-4  mb-3">
+                                        <label for="product_size" class="form-label">Stock</label>
+                                        <input type="text" placeholder="Type here" class="form-control" id="stock" name="stock">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- card end// -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div>
+                                    <label class="form-label">Description</label>
+                                    <textarea placeholder="Type here" class="form-control" rows="4" id="description" name="description"></textarea>
+                                </div>
+                            </div>
+                        </div> <!-- card end// -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div>
+                                    <label class="form-label">Images  ( Minimum 3 )</label>
+                                    <input class="form-control" id="imageInp" type="file" name="image" multiple onchange="handleImgUpload(event)">
+                                </div>
+                                <div id="imagePreview" class="mt-3 d-flex flex-wrap gap-4" >
+                                    <img src="" alt="" class="imgprev">
+                                    <img src="" alt="" class="imgprev">
+                                    <img src="" alt="" class="imgprev">
+                                    <img src="" alt="" class="imgprev">
+                                </div>
+                            </div>
+                        </div> <!-- card end// -->
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <label class="form-label">Price</label>
+                                    <input type="text" placeholder="Type here" class="form-control" id="price" name="price">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Categories</label>
+                                    <select class="form-select" name="category" id="category">
+                                        <option>Select category</option>
+                                        <%if(locals.category){locals.category.forEach((element)=>{%>
+                                        <option value="<%= element._id%>"><%= element.name%></option>
+                                        <%})}%>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-md rounded font-sm hover-up">Create & Save</button>
+                            </div>
+                        </div> <!-- card end// -->
+                    </div>
+                </form>
+            </div>
+        </section>
+<script>
+    const imageInputBox = document.getElementById('imageInp')
+    console.log("imageInput",imageInputBox);
+
+            function handleImgUpload(e){
+            console.log("hi",e.target.files);
+            const files = Array.from(e.target.files)
+            const urls = files.map((ele)=>{
+            return URL.createObjectURL(ele)
+            })
+            console.log(urls);
+            document.querySelectorAll('.imgprev').forEach((el,index)=>{
+                el.src = urls[index]
+            })
+}
+    
+    // const imageInput = document.getElementById('imageInput')
+    // const imagePreview = document.getElementById('imagePreview')
+
+    // imageInput.addEventListener('change',function(){
+    //     imagePreview.innerHTML = ''
+
+    //     Array.from(this.files).forEach(file =>{
+    //         if(!file.type.starsWith('image/'))
+    //         return
+
+    //         const imageUrl = URL.createObjectURL(file)
+    //         const img = document.createElement('img')
+
+    //         img.src = imageUrl
+    //         img.style.maxWidth = '150px'
+    //         img.style.margin = '10px'
+
+    //         imagePreview.appendChild(img)
+    //         img.onload = ()=> URL.revokeObjectURL(imageUrl)
+    //     })
+    // })
+
+</script>
+        <footer class="main-footer font-xs">
+            <div class="row pb-30 pt-15">
+                <div class="col-sm-6">
+                    <script>
+                    document.write(new Date().getFullYear())
+                    </script> ©, Evara - HTML Ecommerce Template .
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end">
+                        All rights reserved
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script src="/public/adminAssets/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/select2.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/perfect-scrollbar.js"></script>
+    <script src="/public/adminAssets/js/vendors/jquery.fullscreen.min.js"></script>
+    <!-- Main Script -->
+    <script src="/public/adminAssets/js/main.js" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-  -product-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:32 GMT -->
+</html>

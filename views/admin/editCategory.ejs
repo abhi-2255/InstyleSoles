@@ -1,0 +1,105 @@
+<%- include('adminPartials/adminHeader.ejs')  %>
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Categories </h2>
+                    <p>Add, edit or delete a category</p>
+                </div>
+                <div>
+                    <input type="text" placeholder="Search Categories" class="form-control bg-white">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <form action="/admin/categoryEdit" method="post" enctype="multipart/form-data">
+                                <% if(locals.data){ %>
+                                    <input type="hidden" name="catId" value="<%= locals.data._id %>">
+                                    <div class="mb-4">
+                                        <label for="catname" class="form-label">Category Name</label>
+                                        <input type="text" placeholder="Type here" class="form-control" id="Cat_name" name="catName" value="<%= locals.data.name %>" />
+                                    </div>
+                                    <!-- <div class="mb-4">
+                                        <img src="/public/images/<%= locals.data.catImg %>" >
+                                        <label for="catimg" class="form-label">Image</label>
+                                        <input type="file" placeholder="Type here" class="form-control" id="cat_Img" name="catImg" accept="image/*"/>
+                                        <br>
+                                        <div class="row col-md-4">
+                                            <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 100px; max-height: 100px;">
+                                            <button id="closeButton" style="display: none; color: red;">X</button>
+                                        </div>
+                                        <p class="perror mb-2" id="error2" style="display: none; color: red;"></p>
+                                        <br><br>
+                                        <p>Old Image</p>
+                                        <img src="/images/<%= locals.data.image %>" alt="Image Preview" style="max-width: 100px; max-height: 100px;">
+                                    </div> -->
+                                    <div class="mb-4">
+                                        <label for="status" class="form-label">Status</label>
+                                        <select name="status" class="form-control" id="status" name="status">
+                                            <option value="0">Active</option>
+                                            <option value="1">Inactive</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label">Description</label>
+                                        <textarea placeholder="Type here" class="form-control" name="description" ><%= locals.data.description %></textarea>
+                                    </div>
+                                    <div class="d-grid">
+                                        <button class="btn btn-primary">Edit category</button>
+                                    </div>
+                                <% } %>
+                            </form>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    
+                                    <tbody>
+                                        <% if(locals.category){ locals.category.forEach((element)=>{ %>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <%= element.name %>
+                                                </td class="text-center">
+                                                <td class="text-center"><%= element.description %></td>
+                                               
+                                                
+                                                <td class="text-center"><a href="/admin/categoryEdit?catIdk<%= element._id %>"><button>Edit</button></a></td>
+
+                                            </tr>
+                                        <% })} %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> <!-- .col// -->
+                    </div> <!-- .row // -->
+                </div> <!-- card body .// -->
+            </div> <!-- card .// -->
+        </section> <!-- content-main end// -->
+        <footer class="main-footer font-xs">
+            <div class="row pb-30 pt-15">
+                <div class="col-sm-6">
+                    <script>
+                    document.write(new Date().getFullYear())
+                    </script> ©, Instyle Soles - The Complete Shoe Store
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end">
+                        All rights reserved
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script src="/public/adminAssets/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/select2.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/perfect-scrollbar.js"></script>
+    <script src="/public/adminAssets/js/vendors/jquery.fullscreen.min.js"></script>
+    <!-- Main Script -->
+    <script src="/public/adminAssets/js/main.js" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-categories.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:21 GMT -->
+</html>

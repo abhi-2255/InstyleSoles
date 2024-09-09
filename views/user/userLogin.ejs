@@ -1,0 +1,365 @@
+<%- include('userPartials/userHeader.ejs') %>
+
+<style>
+    .create-account {
+        margin-top: 40px;
+        text-align: center;
+        color: #007bff;
+    }
+    .create-account-link {
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .create-account-link:hover{
+        text-decoration: underline;
+    }
+</style>
+        <div class="header-small-mobile section-padding-1">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <div class="mobile-logo logo-width">
+                            <a href="/">
+                                <img alt="" src="/public/userAssets/images/logo/logo.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mobile-header-right-wrap">
+                            <div class="header-right-wrap header-right-flex">
+                                <div class="same-style cart-wrap">
+                                    <a href="#" class="cart-active">
+                                        <i class="dlicon shopping_bag-20"></i>
+                                        <span class="count-style">02</span>
+                                    </a>
+                                </div>
+                                <div class="same-style header-off-canvas">
+                                    <a class="header-aside-button" href="#">
+                                        <i class="dlicon ui-3_menu-left"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- search start -->
+        <div class="search-content-wrap main-search-active">
+            <a class="search-close"><i class="dlicon ui-1_simple-remove"></i></a>
+            <div class="search-content">
+                <p>Start typing and press Enter to search</p>
+                <form class="search-form" action="#">
+                    <input type="text" placeholder="Search">
+                    <button class="button-search"><i class="dlicon ui-1_zoom"></i></button>
+                </form>
+            </div>
+        </div>
+        <!-- mini cart start -->
+        <div class="sidebar-cart-active">
+            <div class="sidebar-cart-all">
+                <a class="cart-close" href="#"><i class="dlicon ui-1_simple-remove"></i></a>
+                <div class="cart-content">
+                    <h3>Shopping Cart</h3>
+                    <ul>
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="/public/userAssets/images/cart/cart-1.jpg" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Bejewelled velvet sandals</a></h4>
+                                <span> 1 × ₹4900.00	</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="/public/userAssets/images/cart/cart-2.jpg" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Contrast faux fur jacket</a></h4>
+                                <span> 1 × ₹4900.00	</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cart-total">
+                        <h4>Subtotal: <span>₹1700.00</span></h4>
+                    </div>
+                    <div class="cart-checkout-btn">
+                        <a class="btn-hover cart-btn-style" href="cart.html">view cart</a>
+                        <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- aside start -->
+        <div class="header-aside-active">
+            <div class="header-aside-wrap">
+                <a class="aside-close"><i class="dlicon ui-1_simple-remove"></i></a>
+                <div class="header-aside-content">
+                    <div class="mobile-menu-area">
+                        <div class="mobile-search">
+                            <form class="search-form" action="#">
+                                <input type="text" placeholder="Search entire store…">
+                                <button class="button-search"><i class="dlicon ui-1_zoom"></i></button>
+                            </form>
+                        </div>
+                        <div class="mobile-menu-wrap">
+                            <!-- mobile menu start -->
+                            <div class="mobile-navigation">
+                                <!-- mobile menu navigation start -->
+                                <nav>
+                                    <ul class="mobile-menu">
+                                        <li class="menu-item-has-children"><a href="/">Home</a>
+                                            
+                                        </li>
+                                        <li class="menu-item-has-children"><a href="#">Pages</a>
+                                            <ul class="dropdown">
+                                                <li><a href="about-us.html">About Us</a></li>
+                                                <li><a href="contact-us.html">Contact Page</a></li>
+                                                <li><a href="404.html">404 Page</a></li>
+                                                <li><a href="comming-soon.html">Comming Soon 01</a></li>
+                                                <li><a href="comming-soon-2.html">Comming Soon 02</a></li>
+                                                <li><a href="faq.html">FAQ</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children "><a href="shop-fullwide.html">shop</a>
+                                            
+                                        </li>
+                                        <li class="menu-item-has-children "><a href="shop-collection-1.html">Categories</a>
+                                           
+                                        </li>
+                                        <li class="menu-item-has-children "><a href="blog.html">About Us</a>
+                                           
+                                        </li>
+                                        <li><a href="shop-instagram.html">Contact Us </a></li>
+                                    </ul>
+                                </nav>
+                                <!-- mobile menu navigation end -->
+                            </div>
+                            <!-- mobile menu end -->
+                        </div>
+                        <div class="mobile-curr-lang-wrap">
+                            <div class="single-mobile-curr-lang">
+                                <a class="mobile-language-active" href="#">Language <i class="fa fa-angle-down"></i></a>
+                                <div class="lang-curr-dropdown lang-dropdown-active">
+                                    <ul>
+                                        <li><a href="#">English (US)</a></li>
+                                        <li><a href="#">English (UK)</a></li>
+                                        <li><a href="#">Spanish</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="single-mobile-curr-lang">
+                                <a class="mobile-currency-active" href="#">Currency <i class="fa fa-angle-down"></i></a>
+                                <div class="lang-curr-dropdown curr-dropdown-active">
+                                    <ul>
+                                        <li><a href="#">USD</a></li>
+                                        <li><a href="#">EUR</a></li>
+                                        <li><a href="#">Real</a></li>
+                                        <li><a href="#">BDT</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="single-mobile-curr-lang">
+                                <a class="mobile-account-active" href="#">My Account <i class="fa fa-angle-down"></i></a>
+                                <div class="lang-curr-dropdown account-dropdown-active">
+                                    <ul>
+                                        <li><a href="/login">Login</a></li>
+                                        <li><a href="/signup">Create Account</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-aside-menu">
+                        <nav>
+                            <ul>
+                                <li><a href="#">About Instyle Soles</a></li>
+                                <li><a href="#">Help Center</a></li>
+                                <li><a href="#">Collection</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">New Look</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <img src="/public/userAssets/images/icon-img/payments.png" alt="payment">
+                    <p>Pellentesque mollis nec orci id tincidunt. Sed mollis risus eu nisi aliquet, sit amet fermentum justo dapibus.</p>
+                    <div class="aside-contact-info">
+                        <ul>
+                            <li><i class="dlicon ui-2_time-clock"></i>Monday - Friday: 9:00 - 11:00</li>
+                            <li><i class="dlicon ui-1_email-84"></i>Info@la-studioweb.com</li>
+                            <li><i class="dlicon tech-2_rotate"></i>(+91) 9188769267 </li>
+                            <li><i class="dlicon ui-1_home-minimal"></i>Helios Tower 75 Tam Trinh Hoang - Ha Noi - Viet Nam</li>
+                        </ul>
+                    </div>
+                    <div class="social-icon-style mb-25">
+                        <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        <a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a>
+                        <a class="behance" href="#"><i class="fa fa-behance"></i></a>
+                    </div>
+                    <div class="copyright">
+                        <p>© 2024 <a href="https://hasthemes.com/">Instyle Soles.</a> All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb-area bg-gray">
+            <div class="container-fluid">
+                <div class="breadcrumb-content text-center">
+                    <div class="breadcrumb-title">
+                        <h2>Login </h2>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="/">Home </a>
+                        </li>
+                        <li><span> > </span></li>
+                        <li class="active">Login</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="login-area pt-60 pb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12" style="padding-inline:22rem;">
+                        <div class="login-register-wrap mr-70">
+                            <h3><i class="fa fa-user-o"></i> Login</h3>
+                            <div class="login-register-form" style="margin-top: 15px !important;">
+                                <% if(locals.message) {%>
+                                    <p style="color: red;"><%= locals.message %></p>
+                                <%}%>
+                                <form action="/login" method="post">
+                                    <div class="sin-login-register">
+                                        <label>Username or email address <span>*</span></label>
+                                        <input type="text" name="email" id="emailId">
+                                        <span id="emailErr" class="error-message" style="color: red;"></span>
+                                    </div>
+                                    <div class="sin-login-register">
+                                        <label>Password <span>*</span></label>
+                                        <input type="password" name="password" id="pwdId">
+                                        <span id="pwdErr" class="error-message" style="color: red;"></span>
+                                    </div>
+                                    <div class="login-register-btn-remember" style="justify-content: space-between;">
+                                        <div class="login-register-btn">
+                                            <button type="submit">Log in</button>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-google" onclick="window.location.href='/login/google'"
+                                                                 style="font-size: 13px; font-weight: 500; color: rgb(50, 91, 224);">
+                                                <i class="fab fa-google"></i> Sign in with Google
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <a href='/forgotPassword'>Forgot your password?</a>
+                                    <div class="create-account ">
+                                        <p>Don't have an account? <a href="/signup" class="create-account-link" style="color: #007bff;">Create an account</a></p>
+                                        
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <%- include('userPartials/userFooter.ejs') %>
+        <div class="support-lists">
+            <ul>
+                <li><a href="#"><i class="dlicon ui-3_chat-46"></i></a></li>
+                <li><a href="#"><i class=" dlicon ui-3_phone"></i></a></li>
+                <li><a href="#"><i class="dlicon ui-1_email-85"></i></a></li>
+            </ul>
+        </div>
+
+        <script>
+            const email = document.getElementById('emailId')
+            const pwd = document.getElementById('pwdId')
+
+            const emailErr = document.getElementById('emailErr')
+            const pwdErr = document.getElementById('pwdErr')
+
+            function emailValidate(value){
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(value.trim() === ''){
+                    emailErr.innerHTML = 'Please Enter your Email'
+                }else if(!emailPattern.test(value)){
+                    emailErr.innerHTML = 'Please enter a valid Email address'
+                }else{
+                    emailErr.innerHTML = ''
+                }
+            }
+
+
+            function pwdValidate(value){
+                const pwdPattern = /^[A-Za-z0-9]{6}$/;
+                if(value.trim() === ''){
+                    pwdErr.innerHTML = 'Please enter your password'
+                }else if(!pwdPattern.test(value)){
+                    pwdErr.innerHTML = 'Enter correct password'
+                }else{
+                    pwdErr.innerHTML = ''
+                }
+            }
+
+            email.addEventListener('blur',()=>{
+                emailValidate(email.value)
+            })
+            
+            pwd.addEventListener('blur',()=>{
+                pwdValidate(pwd.value)
+            })
+            
+        </script>
+       
+    </div>
+
+    <!-- All JS is here
+============================================ -->
+
+    <!-- Modernizer JS -->
+    <script src="/public/userAssets/js/vendor/modernizr-3.11.7.min.js"></script>
+    <!-- jquery -->
+    <script src="/public/userAssets/js/vendor/jquery-v3.6.0.min.js"></script>
+    <!-- Popper JS -->
+    <script src="/public/userAssets/js/vendor/popper.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/public/userAssets/js/vendor/bootstrap.min.js"></script>
+    <script src="/public/userAssets/js/plugins/owl-carousel.js"></script>
+    <script src="/public/userAssets/js/plugins/slick.js"></script>
+    <script src="/public/userAssets/js/plugins/jarallax.min.js"></script>
+    <script src="/public/userAssets/js/plugins/countdown.js"></script>
+    <script src="/public/userAssets/js/plugins/magnific-popup.js"></script>
+    <script src="/public/userAssets/js/plugins/instafeed.js"></script>
+    <script src="/public/userAssets/js/plugins/tilt.js"></script>
+    <script src="/public/userAssets/js/plugins/images-loaded.js"></script>
+    <script src="/public/userAssets/js/plugins/isotope.js"></script>
+    <script src="/public/userAssets/js/plugins/scrolloverflow-fullpage.js"></script>
+    <script src="/public/userAssets/js/plugins/fullpage.js"></script>
+    <script src="/public/userAssets/js/plugins/jquery-ui.js"></script>
+    <script src="/public/userAssets/js/plugins/jquery-ui-touch-punch.js"></script>
+    <script src="/public/userAssets/js/plugins/easyzoom.js"></script>
+    <script src="/public/userAssets/js/plugins/resizesensor.js"></script>
+    <script src="/public/userAssets/js/plugins/sticky-sidebar.js"></script>
+    <script src="/public/userAssets/js/plugins/scrollup.js"></script>
+    <script src="/public/userAssets/js/plugins/select2.min.js"></script>
+    <script src="/public/userAssets/js/plugins/cookie.js"></script>
+    <script src="/public/userAssets/js/plugins/bpopup.js"></script>
+    <script src="/public/userAssets/js/plugins/wow.js"></script>
+    <script src="/public/userAssets/js/plugins/ajax-mail.js"></script>
+    <!-- Main JS -->
+    <script src="/public/userAssets/js/main.js"></script>
+
+</body>
+
+
+<!-- Mirrored from template.hasthemes.com/Instyle Soles/Instyle Soles/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Feb 2024 11:20:02 GMT -->
+</html>

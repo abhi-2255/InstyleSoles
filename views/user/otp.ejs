@@ -1,0 +1,151 @@
+<%- include('userPartials/userHeader.ejs') %>
+<script>
+    async function handleClick(){
+    console.log('logger');
+    
+    const otp = document.getElementById('otp').value.trim()
+    const otpErr = document.getElementById('otpErr')
+
+    otpErr.innerHTML= ''
+
+    if (!otp || otp.length !== 6 || isNaN(otp)) {
+            otpErr.innerHTML = 'Please enter a valid 6-digit OTP.'; // Display error message
+            return;
+        }
+   
+
+    try{
+        const response = await fetch('/otp',{
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({otp})
+        })
+        const data = await response.json()
+        console.log('Data:',data)
+
+        if(response.ok && data.message === 'OTP verified successfully!'){
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: data.message,
+            }).then(() =>{
+                window.location.href = '/login'
+            })
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title:'Invalid OTP',
+                text: data.message,
+            })
+            const resendDiv = document.getElementById('resend');
+            if (resendDiv) {
+                resendDiv.style.display = 'block'; // Make resend link visible
+            }
+
+           
+        }
+    }catch(error){
+        Swal.fire({
+            icon: "error",
+            title: 'Error',
+            text:'An error occured.Please try again'
+        })
+        console.log(error)
+    }
+}
+</script>
+
+<div class="container col-4 login_wrap widget-taber-content p-30 background-white border-radius-5 mt-30">
+    <div class="padding_eight_all bg-white">
+        <div class="heading_s1">
+            <h4 class="mb-30">Email Verification</h4>
+        </div>
+
+        <!-- Add your email verification modal content here -->
+
+        <!-- Add OTP input field -->
+        <div id="timer" class="text-muted text-center pt-10"></div>
+
+        <!-- Display error messages if available -->
+        <% if (locals.message && locals.message.length > 0) { %>
+            <p style="color: red;"><%= locals.message %></p>
+            <% } %>
+
+        <!-- <form id="otpForm" > -->
+            <div class="form-group">
+                <label for="otp">Enter OTP:</label>
+                <br>
+                <input type="text" id="otp" name="otp" class="form-control" required>
+                <p id="otpErr" style="color: red; font-size: 0.9rem;"></p>
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-primary" onclick="handleClick()">Verify Email</button>
+            
+                <div id="resend" style="display: none;" >
+                    <a class="btn" href="/resendotp" id="resendLink" style="background-color: rgb(73, 163, 237); color: white;">Resend OTP</a>
+                </div>
+            </div>
+            <!-- Add Verify Email button -->
+            
+            <br>
+            <br>
+        <!-- </form> -->
+
+        <div class="text-muted text-center pt-25">
+            Already verified? <a href="/login">Login now</a>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+    // Timer settings
+    const OTP_EXPIRY_TIME = 2 * 60; 
+    let timeRemaining = OTP_EXPIRY_TIME;
+
+    const timerElement = document.getElementById('timer');
+    const resendLink = document.getElementById('resendLink');
+
+    function updateTimer() {
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        timerElement.textContent = `Resend OTP in ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        
+        if (timeRemaining > 0) {
+            timeRemaining--;
+        } else {
+            clearInterval(timerInterval);
+            if (timerElement) {
+                timerElement.textContent = '';
+            }
+            const resendDiv = document.getElementById('resend')
+            if(resendDiv){
+                resendDiv.style.display = 'block'
+            }
+            if(resendLink){
+                resendLink.removeAttribute('disabled')
+                resendLink.style.pointerEvents = 'auto'
+            }
+        }
+    }
+
+    // Disable the resend link initially
+    if(resendLink){
+        resendLink.setAttribute('disabled', 'true')
+        resendLink.style.pointerEvents = 'grey'
+    }
+    
+    // Start the countdown
+    const timerInterval = setInterval(updateTimer, 1000);
+
+})
+</script>
+
+
+
+<%- include('userPartials/userFooter.ejs') %>
